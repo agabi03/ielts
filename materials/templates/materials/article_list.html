@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Статьи</title>
+</head>
+<body>
+    <h1>Статьи</h1>
+    <ul>
+    {% for article in articles %}
+        <li>
+            <div class="article-title" style="cursor:pointer;">{{ article.title }}</div>
+            <div class="article-content" style="display:none;">{{ article.content }}</div>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.article-title').forEach(item => {
+        item.addEventListener('click', function() {
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    });
+});
+</script>
+
+</html>
